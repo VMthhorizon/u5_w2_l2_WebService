@@ -46,11 +46,19 @@ public class BlogPostsServices {
                 found.setTitolo(body.getTitolo());
                 found.setCategoria(body.getCategoria());
                 found.setTempoDiLettura(body.getTempoDiLettura());
+
+                break;
             }
         }
         if (found == null) throw new RuntimeException("Blog non trovato");
 
         return new BlogPostsResponsePayload(found.getId(), found.getCategoria(),
                 found.getTitolo(), found.getContenuto(), found.getTempoDiLettura(), found.getCover());
+    }
+
+    public void deleteBlogById(long blogPostId) {
+        Blog found = findById(blogPostId);
+
+        if (found == null) throw new RuntimeException("Nessun blog trovato");
     }
 }

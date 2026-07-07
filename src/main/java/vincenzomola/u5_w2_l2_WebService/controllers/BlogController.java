@@ -41,4 +41,10 @@ public class BlogController {
         return this.blogPostsServices.modifyBlogPostById(body, blogPostId);
     }
 
+    @DeleteMapping("/{blogPostId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteBlog(@PathVariable long blogPostId) {
+        this.blogPostsServices.deleteBlogById(blogPostId);
+    }
+
 }
