@@ -18,10 +18,39 @@ public class BlogPostsServices {
         return this.blogPostsFromDb;
     }
 
-    public Blog createBlogPosts(BlogPostsResponsePayload body) {
+    public BlogPostsResponsePayload createBlogPosts(BlogPostsPayload body) {
         Blog newBlog = new Blog(body.getCategoria(), body.getTitolo(), body.getContenuto(), body.getTempoDiLettura());
         blogPostsFromDb.add(newBlog);
         System.out.println("Il post con titolo" + newBlog.getTitolo() + " é stato creato");
-        return newBlog;
+        return new BlogPostsResponsePayload(newBlog.getId(), newBlog.getCategoria(), newBlog.getTitolo(),
+                newBlog.getContenuto(), newBlog.getTempoDiLettura(), newBlog.getCover());
+    }
+
+    public Blog findById(long blogPostId) {
+        Blog found = null;
+
+        for (Blog blog : this.blogPostsFromDb) {
+            if (blog.getId() == blogPostId) found = blog;
+        }
+
+        if (found == null) throw new RuntimeException("Blog non trovato");
+        return found;
+    }
+
+    public BlogPostsResponsePayload modifyBlogPostById(BlogPostsPayload body, long blogPostsId) {
+        Blog found = null;
+
+        for (Blog blog : this.blogPostsFromDb) {
+            if (blog.getId() == blogPostsId) {
+                found = blog;
+                found.setTitolo(body.getTitolo());
+                found.setCategoria(body.getCategoria());
+                found.setTempoDiLettura(body.getTempoDiLettura());
+            }
+        }
+        if (found == null) throw new RuntimeException("Blog non trovato");
+
+        return new BlogPostsResponsePayload(found.getId(), found.getCategoria(),
+                found.getTitolo(), found.getContenuto(), found.getTempoDiLettura(), found.getCover());
     }
 }

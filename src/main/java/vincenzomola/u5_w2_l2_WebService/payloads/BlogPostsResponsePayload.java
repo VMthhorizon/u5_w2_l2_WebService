@@ -8,14 +8,22 @@ public class BlogPostsResponsePayload {
     private int tempoDiLettura;
     private String cover;
 
-    public BlogPostsResponsePayload(int tempoDiLettura, String contenuto, String titolo,
-                                    String categoria) {
+    public BlogPostsResponsePayload(long id, String categoria, String titolo, String contenuto, int tempoDiLettura,
+                                    String cover) {
         this.id = id;
-        this.cover = cover;
-        this.tempoDiLettura = tempoDiLettura;
-        this.contenuto = contenuto;
-        this.titolo = titolo;
         this.categoria = categoria;
+        this.titolo = titolo;
+        this.contenuto = contenuto;
+        this.tempoDiLettura = tempoDiLettura;
+        this.cover = cover;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getCover() {
+        return cover;
     }
 
     public String getContenuto() {
@@ -32,6 +40,22 @@ public class BlogPostsResponsePayload {
 
     public int getTempoDiLettura() {
         return tempoDiLettura;
+    }
+
+    public void setContenuto(String contenuto) {
+        this.contenuto = contenuto;
+    }
+
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setTempoDiLettura(int tempoDiLettura) {
+        this.tempoDiLettura = tempoDiLettura;
     }
 
     @Override

@@ -21,6 +21,22 @@ public class Blog {
         this.cover = "https://picsum.photos/200/300";
     }
 
+    public void setTempoDiLettura(int tempoDiLettura) {
+        this.tempoDiLettura = tempoDiLettura;
+    }
+
+    public void setContenuto(String contenuto) {
+        this.contenuto = contenuto;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+
     public String getCategoria() {
         return categoria;
     }

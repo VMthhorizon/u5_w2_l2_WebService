@@ -27,8 +27,18 @@ public class BlogController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Blog createBlogPosts(@RequestBody BlogPostsResponsePayload body) {
+    public BlogPostsResponsePayload createBlogPosts(@RequestBody BlogPostsPayload body) {
         return this.blogPostsServices.createBlogPosts(body);
+    }
+
+    @GetMapping("/{blogPostId}")
+    public Blog findById(@PathVariable long blogPostId) {
+        return this.blogPostsServices.findById(blogPostId);
+    }
+
+    @PutMapping("/{blogPostId}")
+    public BlogPostsResponsePayload modifyBlogPosts(@RequestBody BlogPostsPayload body, @PathVariable long blogPostId) {
+        return this.blogPostsServices.modifyBlogPostById(body, blogPostId);
     }
 
 }

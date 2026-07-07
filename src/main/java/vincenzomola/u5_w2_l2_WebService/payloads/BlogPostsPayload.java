@@ -29,7 +29,22 @@ public class BlogPostsPayload {
     public int getTempoDiLettura() {
         return tempoDiLettura;
     }
-    
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setContenuto(String contenuto) {
+        this.contenuto = contenuto;
+    }
+
+    public void setTempoDiLettura(int tempoDiLettura) {
+        this.tempoDiLettura = tempoDiLettura;
+    }
+
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
 
     @Override
     public String toString() {
