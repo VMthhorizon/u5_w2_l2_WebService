@@ -2,6 +2,7 @@ package vincenzomola.u5_w2_l2_WebService.entities;
 
 import java.util.Random;
 
+
 public class Blog {
 
     private long id;

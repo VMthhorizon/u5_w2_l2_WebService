@@ -19,6 +19,30 @@ public class AutoreResponsePayload {
         this.avatar = avatar;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getDataDiNascita() {
+        return dataDiNascita;
+    }
+
     @Override
     public String toString() {
         return "AutoreResponsePayload{" +
